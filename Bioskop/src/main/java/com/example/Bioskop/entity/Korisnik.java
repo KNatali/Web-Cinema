@@ -16,24 +16,24 @@ public class Korisnik implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(nullable=false)
-	protected String korisnicko_ime;
-	@Column(nullable=false)
+	@Column
+	protected String korisnickoIme;
+	@Column
 	protected String lozinka;
 	@Column
 	protected String ime;
 	@Column
 	protected String prezime;
 	@Column
-	protected String kontakt_telefon;
+	protected String kontaktTelefon;
 	@Column
-	protected String e_adresa;
+	protected String Eadresa;
 	@Column
-	protected Date datum_rodjenja;
-	@Column(nullable=false)
+	protected String datumRodjenja;
+	@Column
 	protected String uloga;
 	@Column
-	protected boolean aktivan;
+	protected Boolean aktivan;
 	
 	
 	
@@ -43,11 +43,11 @@ public class Korisnik implements Serializable{
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getKorisnicko_ime() {
-		return korisnicko_ime;
+	public String getKorisnickoIme() {
+		return korisnickoIme;
 	}
-	public void setKorisnicko_ime(String korisnicko_ime) {
-		this.korisnicko_ime = korisnicko_ime;
+	public void setKorisnickoIme(String korisnicko_ime) {
+		this.korisnickoIme = korisnicko_ime;
 	}
 	public String getLozinka() {
 		return lozinka;
@@ -67,23 +67,23 @@ public class Korisnik implements Serializable{
 	public void setPrezime(String prezime) {
 		this.prezime = prezime;
 	}
-	public String getKontakt_telefon() {
-		return kontakt_telefon;
+	public String getKontaktTelefon() {
+		return kontaktTelefon;
 	}
-	public void setKontakt_telefon(String kontakt_telefon) {
-		this.kontakt_telefon = kontakt_telefon;
+	public void setKontaktTelefon(String kontakt_telefon) {
+		this.kontaktTelefon = kontakt_telefon;
 	}
-	public String getE_adresa() {
-		return e_adresa;
+	public String getEadresa() {
+		return Eadresa;
 	}
-	public void setE_adresa(String e_adresa) {
-		this.e_adresa = e_adresa;
+	public void setEadresa(String e_adresa) {
+		this.Eadresa = e_adresa;
 	}
-	public Date getDatum_rodjenja() {
-		return datum_rodjenja;
+	public String getDatumRodjenja() {
+		return datumRodjenja;
 	}
-	public void setDatum_rodjenja(Date datum_rodjenja) {
-		this.datum_rodjenja = datum_rodjenja;
+	public void setDatumRodjenja(String datum_rodjenja) {
+		this.datumRodjenja = datum_rodjenja;
 	}
 	public String getUloga() {
 		return uloga;
@@ -91,19 +91,19 @@ public class Korisnik implements Serializable{
 	public void setUloga(String uloga) {
 		this.uloga = uloga;
 	}
-	public boolean isAktivan() {
+	public Boolean isAktivan() {
 		return aktivan;
 	}
-	public void setAktivan(boolean aktivan) {
+	public void setAktivan(Boolean aktivan) {
 		this.aktivan = aktivan;
 	}
 	
-	@Override
+	/*@Override
 	public String toString() {
 		return "Korisnik {id=" + id + ", korisnicko_ime=" + korisnicko_ime + ", ime=" + ime + ", prezime=" + prezime
 				+ ", lozinka=" + lozinka + ", kontakt_telefon=" + kontakt_telefon + ", e_adresa=" + e_adresa
 				+ ", datum_rodjenja=" + datum_rodjenja + ", uloga=" + uloga + ", aktivan=" + aktivan + "}";
 	}
-	
+	*/
 	
 }

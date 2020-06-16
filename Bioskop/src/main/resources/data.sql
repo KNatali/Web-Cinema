@@ -1,4 +1,5 @@
-INSERT INTO ADMINISTRATOR (korisnicko_ime,lozinka,ime,prezime,uloga,aktivan) VALUES ('natali','246516','Natalija','Krsmanovic','Administrator',true);
+
+INSERT INTO ADMINISTRATOR (korisnicko_ime,lozinka,ime,prezime,uloga,aktivan) VALUES ('natali','123456','Natalija','Krsmanovic','Administrator',true);
 
 INSERT INTO MENADZER (korisnicko_ime,lozinka,ime,prezime,uloga,aktivan) VALUES ('nikola12','skfckh','Nikola','Nikolic','Menadzer',true);
 
@@ -9,9 +10,10 @@ INSERT INTO GLEDALAC (korisnicko_ime,lozinka,ime,prezime,uloga) VALUES ('KingmAr
 INSERT INTO BIOSKOP (naziv,adresa,broj_centrale,menadzer_id) VALUES ('Cineplexx Palas','Trg Krajine bb','+387 51 211 732',1);
 INSERT INTO BIOSKOP (naziv,adresa,broj_centrale,menadzer_id) VALUES ('CineStar','Bulevar srpske vojske','+387 51 255 024',1);
 
-INSERT INTO FILM(naziv,opis,zanr,trajanje) VALUES ('Us','Misteriozna desavanja iza ogledala','horor',90);
-INSERT INTO FILM(naziv,opis,zanr,trajanje) VALUES ('Love Rosie','romanticna prica jednog para','romatika',115);
-INSERT INTO FILM(naziv,opis,zanr,trajanje) VALUES ('Prestige','film sa puno inzvarednih trikova i plot tvistova','misterija',120);
+INSERT INTO FILM(naziv,opis,zanr,trajanje,srednja_ocjena) VALUES ('Us','Misteriozna desavanja iza ogledala','horor',90,8);
+INSERT INTO FILM(naziv,opis,zanr,trajanje,srednja_ocjena) VALUES ('It','Misteriozna desavanja iza ogledala','horor',90,9);
+INSERT INTO FILM(naziv,opis,zanr,trajanje,srednja_ocjena) VALUES ('Love Rosie','romanticna prica jednog para','romantika',115,8.0);
+INSERT INTO FILM(naziv,opis,zanr,trajanje,srednja_ocjena) VALUES ('The Prestige','film sa puno inzvarednih trikova i plot tvistova','misterija',120,9);
 
 INSERT INTO SALA(kapacitet,oznaka_sale,bioskop_id) VALUES (200,'A2',1);
 INSERT INTO SALA(kapacitet,oznaka_sale,bioskop_id) VALUES (250,'A1',1);

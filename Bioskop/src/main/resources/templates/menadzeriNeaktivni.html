@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Bioskop-Naslovna-Gledalac</title>
+	<meta charset="utf-8"/>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	 
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet">
+  	<link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet">	
+  	<link rel="stylesheet" th:href="@{/css/profilGledalac.css}"/>	
+</head>
+	
+<body>
+
+	<!-- navigacijski meni-->
+		<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+			<a href="#" class="navbar-brand">
+				<img src="/images/logo1.png" height="28" alt="CoolBrand">
+			</a>
+			<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<div class="navbar-nav ml" >
+					<a th:href="${'/'}" class="nav-item nav-link active">Početna</a>
+					<div class="nav-item dropdown">
+						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Filmovi</a>
+						<div class="dropdown-menu">
+							<a th:href="${'/filmovi'}" class="dropdown-item">Svi filmovi</a>
+							<a href="#" class="dropdown-item">Raspored</a>
+							<a th:href="${'/pretraga'}" class="dropdown-item">Pretraga</a>
+						</div>
+					</div>
+					<a href="#" class="nav-item nav-link">Bioskop</a>
+					<a href="#" class="nav-item nav-link">O nama</a>
+					<a href="#" class="nav-item nav-link">Kontakt</a>
+					
+				</div>
+				<div class="navbar-nav ml-auto">
+					<a  href="#" class="nav-item nav-link">Moj profil</a>
+					<a th:href="${'/'}" class="nav-item nav-link">Log Out</a>
+				</div>
+				
+			</div>
+		</nav>
+		
+		
+	<div class="container my-5 py-5 z-depth-1">
+	
+	
+	  <!--Section: Content-->
+	  <section class="text-center">
+	
+	    <!-- Section heading -->
+	    <h3 class="font-weight-bold ">PREGLED NEAKTIVNIH MENADŽERA</h3>
+		<hr class=" accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 200px;">
+	
+	    <div class="row">
+	      
+	        
+				
+				<table class="table table-hover table-striped table-dark">
+				  <thead>
+				    <tr>
+				      <th scope="col">Id</th>
+				      <th scope="col">Korisničko ime</th>
+				      <th scope="col">Ime</th>
+				      <th scope="col">Prezime</th>
+				      <th scope="col">Aktivan</th>
+				      <th scope="col">Aktiviraj</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr th:each="menadzer:${menadzeri}">
+				      <th scope="row" th:text="${menadzer.id}"></th>
+				      <td th:text="${menadzer.korisnickoIme}"></td>
+				      <td th:text="${menadzer.ime}"></td>
+				      <td th:text="${menadzer.prezime}"></td>
+				      <td th:text="${menadzer.aktivan}"></td>
+				      <td><a class="text-danger" th:href="${'/menadzeri/' + menadzer.id}">Aktiviraj Nalog</a></td>
+				    </tr>
+				  </tbody>
+				</table>
+	          
+	
+	        
+	    </div>
+	
+	  </section>
+	  <!--Section: Content-->
+	
+	
+	</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		 <!-- Footer -->
+<footer class="footer bg-dark text-white">
+
+  <!-- Footer Links -->
+  <div class="container-fluid text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-6 mt-md-0 mt-3">
+
+        <!-- Content -->
+        <h5 class="text-uppercase">Bioskop Online</h5>
+         <hr class=" accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 100px;">
+        <p>Uživajte u najboljim filmovima  i rezervišite svoje mjesto na vrijeme.</p>
+		
+		
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      <!-- Grid column -->
+      <!-- mb-md-0 znaci da ce margina dolje u mediumu biti 0 -->
+      <div class="col-md-3 mb-md-0  mb-3">
+
+        <!-- Links -->
+        <h5 class="text-uppercase">Žanrovi:</h5>
+		<hr class=" accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 100px;">
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Romantika</a>
+          </li>
+          <li>
+            <a href="#!">Horor</a>
+          </li>
+		   <li>
+            <a href="#!">Komedija</a>
+          </li>
+		   <li>
+            <a href="#!">Akcija</a>
+          </li>
+        
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <!-- Links -->
+        <h5 class="text-uppercase">Pregled:</h5>
+		<hr class=" accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 100px;">
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Dostupni filmovi</a>
+          </li>
+          <li>
+            <a href="#!">Repertoar</a>
+          </li>
+		   <li>
+            <a href="#!">Pretraga</a>
+          </li>
+         
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  
+</footer>
+<!-- Footer -->
+
+
+
+<!-- Copyright -->
+  <div class="footer-copyright text-center py-3 ">© 2020 Copyright:
+    <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+  </div>
+  <!-- Copyright -->
+		
+				
+				
+				
+		
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+	
+</body>
+	
+</html>

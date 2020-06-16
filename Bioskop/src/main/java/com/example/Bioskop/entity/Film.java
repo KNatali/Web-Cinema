@@ -1,7 +1,9 @@
 package com.example.Bioskop.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -29,7 +31,7 @@ public class Film implements Serializable {
 	@Column
 	private int trajanje;
 	@Column
-	private double srednja_ocjena;
+	private Double srednjaOcjena;
 	
 	//druga strana veze
 	@ManyToMany(mappedBy="odgledani_filmovi")
@@ -42,9 +44,21 @@ public class Film implements Serializable {
 	@OneToMany(mappedBy="film",fetch=FetchType.LAZY,cascade=CascadeType.ALL)
 	private Set<Ocjena> ocjene=new HashSet<>();
 	
+	@OneToMany(mappedBy="film")
+	private List<Terminski_raspored> projekcije=new ArrayList<>();
 	
 	
 	
+	
+	
+	public List<Terminski_raspored> getProjekcije() {
+		return projekcije;
+	}
+
+	public void setProjekcije(List<Terminski_raspored> projekcije) {
+		this.projekcije = projekcije;
+	}
+
 	public Set<Ocjena> getOcjene() {
 		return ocjene;
 	}
@@ -93,12 +107,12 @@ public class Film implements Serializable {
 		this.trajanje = trajanje;
 	}
 
-	public double getSrednja_ocjena() {
-		return srednja_ocjena;
+	public Double getSrednja_ocjena() {
+		return srednjaOcjena;
 	}
 
-	public void setSrednja_ocjena(double srednja_ocjena) {
-		this.srednja_ocjena = srednja_ocjena;
+	public void setSrednja_ocjena(Double srednja_ocjena) {
+		this.srednjaOcjena = srednja_ocjena;
 	}
 
 	public Set<Gledalac> getGledaoci_koji_su_odgledali_film() {
@@ -120,7 +134,7 @@ public class Film implements Serializable {
 	@Override
 	public String toString() {
 		return "Film {id=" + id + ", naziv=" + naziv + ", opis=" + opis + ", zanr=" + zanr + ", trajanje=" + trajanje
-				+ ", srednja_ocena=" + srednja_ocjena + "}";
+				+ ", srednja_ocena=" + srednjaOcjena + "}";
 	}
 	
 	

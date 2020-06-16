@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employees</title>
+</head>
+<body>
+<form th:action="@{/film-pretraga}" th:object="${film}" method="get">
+    <label for="Naziv">Naziv:</label>
+    <input id="Naziv" type="text" th:field="*{naziv}"/>
+    <label for="Zanr">Zanr:</label>
+    <input id="Zanr" type="text" th:field="*{zanr}"/>
+    <label for="Opis">Opis:</label>
+    <input id="Opis" type="text" th:field="*{opis}"/>
+    <label for="ocjena">Ocjena (between 1 and 10):</label>
+	 <input id="ocjena" type="number" th:field="*{srednja_ocjena}"/> 
+    <input type="submit">
+</form>
+</body>
+</html>

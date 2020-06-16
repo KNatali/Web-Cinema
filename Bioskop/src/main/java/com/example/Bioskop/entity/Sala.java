@@ -79,7 +79,7 @@ public class Sala implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "Sala {id=" + id + ", kapacitet=" + kapacitet + ", oznaka_sale=" + oznaka_sale + "}";
+		return "Sala {id=" + id + ", kapacitet=" + kapacitet + ", oznaka_sale=" + oznaka_sale + ",bioskop="+bioskop+"}";
 	}
 	
 }

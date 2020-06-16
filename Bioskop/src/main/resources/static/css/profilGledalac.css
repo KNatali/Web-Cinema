@@ -1,0 +1,92 @@
+html{
+	margin:0;
+	padding:0;
+	background-color:#343a40;
+}
+
+body{
+	margin:0;
+	padding:0;
+	background-color:#343a40;
+background-image: url("bioskop2.jpg");
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: "Trebuchet MS", Tahoma, sans-serif;
+	
+}
+
+section{
+	background:rgb(0,0,0,0.3);
+	padding:10px 10px;
+	color:white;
+	
+}
+.btn-outline-danger{
+	border:#dc3545 solid 2.3px;
+	color:#f8f9fa;
+}
+.menii{
+	background:rgb(0,0,0,0.8);
+}
+.menii a btn-outline-danger{
+	border:black solid 2px;
+}
+.menii a:hover{
+	border:black solid 2px;
+}
+
+section h3{
+	padding:10px;
+}
+section hr{
+	border-top: 2px solid #dc3545;
+}
+
+section h2{
+	padding:20px 0;
+}
+
+section img{
+	padding-bottom:20px;
+}
+
+
+
+footer{
+	
+	padding-top:30px;
+}
+footer hr{
+	border-top: 2px solid #dc3545;
+}
+
+footer h5{
+	font-size:17px;
+}
+footer li a{
+	color:white;
+}
+
+footer li a:hover{
+	color:#dc3545;
+	text-decoration:none;
+}
+
+.footer-copyright {
+	color:white;
+	background-color:#2d3339;
+}
+.footer-copyright a {
+	color:#dc3545;
+}
+
+.footer-copyright a:hover{
+	color:white;
+	text-decoration:none;
+}
+
+
+
+
+

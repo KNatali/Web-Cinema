@@ -1,0 +1,230 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Bioskop-Naslovna</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" th:href="@{/css/naslovna.css}"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	 
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet">
+  	<link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet">		
+</head>
+	
+<body>
+
+	<!-- navigacijski meni-->
+		<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+			<a href="#" class="navbar-brand">
+				<img src="/images/logo1.png" height="28" alt="CoolBrand">
+			</a>
+			<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<div class="navbar-nav ml" >
+					<a th:href="${'/'}" class="nav-item nav-link active">Početna</a>
+					<div class="nav-item dropdown">
+						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Filmovi</a>
+						<div class="dropdown-menu">
+							<a th:href="${'/filmovi'}" class="dropdown-item">Svi filmovi</a>
+							<a href="#" class="dropdown-item">Raspored</a>
+							<a th:href="${'/pretraga'}" class="dropdown-item">Pretraga</a>
+						</div>
+					</div>
+					<a th:href="${'/bioskopi'}" class="nav-item nav-link">Bioskop</a>
+					<a href="#" class="nav-item nav-link">O nama</a>
+					<a href="#" class="nav-item nav-link">Kontakt</a>
+					
+				</div>
+				<div class="navbar-nav ml-auto">
+					<a  th:href="${'/login'}" class="nav-item nav-link">Login</a>
+					<a th:href="${'/register'}" class="nav-item nav-link">Register</a>
+				</div>
+				
+			</div>
+		</nav>
+		
+		
+		<!--SLider slika za filmove-->
+		
+		<div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
+			<!-- Carousel indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+				<li data-target="#myCarousel" data-slide-to="3"></li>
+			</ol>
+			<!-- Wrapper for carousel items -->
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="/images/Believe.jpg" class="d-block w-100"   alt="First Slide">
+					<div class="carousel-caption d-none d-md-block">
+						<h1>I Still Believe</h1>
+						<h2>OD 25.07 U BIOSOPIMA</h2>
+						<a class="btn btn-danger" href="#" role="button">Rezerviši</a>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img src="/images/Tenet.jpg"  class="d-block w-100" alt="Second Slide">
+					<div class="carousel-caption d-none d-md-block">
+						<h1>Tenet</h1>
+						<h2>OD 03.07 U BIOSKOPIMA </h2>
+						<a class="btn btn-danger" href="#" role="button">Rezerviši</a>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img src="/images/ww.jpg" class="d-block w-100" alt="Third Slide">
+					<div class="carousel-caption d-none d-md-block">
+						<h1>Wonder woman 2</h1>
+						<h2>OD 10.07 U BIOSKOPIMA</h2>
+						<a class="btn btn-danger" href="#" role="button">Rezerviši</a>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img src="images/artemis1.jpg" class="d-block w-100" alt="Third Slide">
+					<div class="carousel-caption d-none d-md-block">
+						<h1>Artemis</h1>
+						<h2>OD 05.08 U BIOSKOPIMA</h2>
+						<a class="btn btn-danger" href="#" role="button">Rezerviši</a>
+					</div>
+				</div>
+			</div>
+			<!-- Carousel controls -->
+			<a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+				<span class="carousel-control-prev-icon"></span>
+			</a>
+			<a class="carousel-control-next" href="#myCarousel" data-slide="next">
+				<span class="carousel-control-next-icon"></span>
+			</a>
+		</div>
+		
+		<!-- boxovi za neki uvod  sta se radiogroup-->
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-sm-12 col-md-6 col-xl-6">
+					<h2><i class="fa fa-ticket" aria-hidden="true"></i><b>SISTEM ZAKAZIVANJA</b></h2>
+					<p>Otkrijte najnovije filmove i ne propustite šansu da ga pogledate.
+						Putem ove aplikacije rezervišite kartu za film potpuno besplatno.
+					</p>
+				</div>
+				<div class="col-sm-12 col-md-6 col-xl-6">
+					<h2><i class="fa fa-video-camera" aria-hidden="true"></i><b>BIOSKOPI</b></h2>
+					<p>Na ovom sajtu možete pronaći veliki spektar bioskopa, takodjer i sve potrebne informacije o njima, i pronaći onaj koji je najbliže Vama</p>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		 <!-- Footer -->
+<footer class="footer bg-dark text-white">
+
+  <!-- Footer Links -->
+  <div class="container-fluid text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-6 mt-md-0 mt-3">
+
+        <!-- Content -->
+        <h5 class="text-uppercase">Bioskop Online</h5>
+         <hr class=" accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 100px;">
+        <p>Uživajte u najboljim filmovima  i rezervišite svoje mjesto na vrijeme.</p>
+		
+		
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      <!-- Grid column -->
+      <!-- mb-md-0 znaci da ce margina dolje u mediumu biti 0 -->
+      <div class="col-md-3 mb-md-0  mb-3">
+
+        <!-- Links -->
+        <h5 class="text-uppercase">Žanrovi:</h5>
+		<hr class=" accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 100px;">
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Romantika</a>
+          </li>
+          <li>
+            <a href="#!">Horor</a>
+          </li>
+		   <li>
+            <a href="#!">Komedija</a>
+          </li>
+		   <li>
+            <a href="#!">Akcija</a>
+          </li>
+        
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <!-- Links -->
+        <h5 class="text-uppercase">Pregled:</h5>
+		<hr class=" accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 100px;">
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Dostupni filmovi</a>
+          </li>
+          <li>
+            <a href="#!">Repertoar</a>
+          </li>
+		   <li>
+            <a href="#!">Pretraga</a>
+          </li>
+         
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  
+</footer>
+<!-- Footer -->
+
+
+
+<!-- Copyright -->
+  <div class="footer-copyright text-center py-3 ">© 2020 Copyright:
+    <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+  </div>
+  <!-- Copyright -->
+		
+				
+				
+				
+		
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+	
+</body>
+	
+</html>

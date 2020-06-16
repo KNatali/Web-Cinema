@@ -28,9 +28,9 @@ public class Bioskop implements Serializable{
 	@Column
 	private String adresa;
 	@Column
-	private String broj_centrale;
+	private String brojCentrale;
 	@Column
-	private String e_mail;
+	private String eMail;
 	
 	//jedan bioskop ima jednog menadzera
 	//cascade je persist jer ne zelim da mi se obrise menadzer ako obrisem bioskop,posto je taj menadzer mozda zaduzen za jos neki bioskop
@@ -84,20 +84,20 @@ public class Bioskop implements Serializable{
 		this.adresa = adresa;
 	}
 
-	public String getBroj_centrale() {
-		return broj_centrale;
+	public String getBrojCentrale() {
+		return brojCentrale;
 	}
 
-	public void setBroj_centrale(String broj_centrale) {
-		this.broj_centrale = broj_centrale;
+	public void setBrojCentrale(String broj_centrale) {
+		this.brojCentrale = broj_centrale;
 	}
 
-	public String getE_mail() {
-		return e_mail;
+	public String getEMail() {
+		return eMail;
 	}
 
-	public void setE_mail(String e_mail) {
-		this.e_mail = e_mail;
+	public void setEMail(String e_mail) {
+		this.eMail = e_mail;
 	}
 
 	public Menadzer getMenadzer() {
@@ -118,8 +118,8 @@ public class Bioskop implements Serializable{
 	
 	@Override
 	public String toString() {
-		return "Bioskop {id=" + id + ", naziv=" + naziv + ", adresa=" + adresa + ", broj_centrale=" + broj_centrale
-				+ ", e_mail=" + e_mail + "}";
+		return "Bioskop {id=" + id + ", naziv=" + naziv + ", adresa=" + adresa + ", broj_centrale=" + brojCentrale
+				+ ", e_mail=" + eMail + "}";
 	}
 	
 }
