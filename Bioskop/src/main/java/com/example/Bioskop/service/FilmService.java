@@ -26,6 +26,21 @@ public class FilmService {
 		return filmovi;
 	}
 	
+	public Film save(Film f) {
+		return this.filmRepository.save(f);
+	}
+	public List<Film> orderNaziv(){
+		return this.filmRepository.findAllByOrderByNaziv();
+	}
+	
+	public List<Film> orderOcjena(){
+		return this.filmRepository.findAllByOrderBySrednjaOcjenaDesc();
+	}
+	
+	public List<Film> orderTrajanje(){
+		return this.filmRepository.findAllByOrderByTrajanje();
+	}
+	
 	public List<Film> findByNaziv(String naziv){
 		List<Film> filmovi=this.filmRepository.findAllByNazivIgnoreCase(naziv);
 		return filmovi;
@@ -34,5 +49,10 @@ public class FilmService {
 	public List<Film> findByKriterijumi(String n,String z,String op,Double oc){
 		List<Film> filmovi=this.filmRepository.findByNazivIgnoreCaseAndZanrIgnoreCaseAndOpisIgnoreCaseAndSrednjaOcjena(n, z, op,oc);
 		return filmovi;
+	}
+	
+	public Film findNaziv(String n) {
+		Film f=this.filmRepository.findByNazivIgnoreCase(n);
+		return f;
 	}
 }

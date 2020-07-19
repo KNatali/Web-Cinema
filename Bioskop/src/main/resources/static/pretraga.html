@@ -1,0 +1,337 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Pretraga</title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	 
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet">
+  	<link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet">
+  	
+  		<!--Bootsrap 4 CDN-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <!--Fontawesome CDN-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+	<!--Custom styles-->
+	<link rel="stylesheet" type="text/css" href="/css/pretraga.css"/>	
+	
+	<script src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/pretraga.js"></script>	
+</head>
+	
+<body>
+
+<!-- navigacijski meni-->
+		<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+			<a href="#" class="navbar-brand">
+				<img src="/images/logo1.png" height="28" alt="CoolBrand">
+			</a>
+			<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<div class="navbar-nav ml" >
+					<a href="index.html" class="nav-item nav-link ">Početna</a>
+					<a href="filmovi.html" class="nav-item nav-link ">Filmovi</a>
+					<a href="pretraga.html" class="nav-item nav-link active">Pretraga</a>
+					<a href="bioskopi.html" class="nav-item nav-link">Bioskop</a>
+					
+				</div>
+				<div class="navbar-nav ml-auto">
+					<a  href="login.html" class="nav-item nav-link">Login</a>
+					<a href="register.html" class="nav-item nav-link">Register</a>
+				</div>
+				
+			</div>
+		</nav>
+		
+		<!-- kartica za katerogirje pretrage -->
+		<div class="" id="kartica">
+			<div class="d-flex justify-content-center h-100">
+				<div class="card" id="logcard" style="height:500px; margin-top:auto;margin-bottom:auto">
+					<div class="card-header">
+						<h3>Pretraga filmova</h3>
+						
+					</div>
+					<div class="card-body">
+						<form id="pretraga">
+							<div class="input-group form-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-film"></i></span>
+								</div>
+								<input type="text" class="form-control" id="naziv" placeholder="Naziv filma">
+								
+							</div>
+							<div class="input-group form-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-film"></i></span>
+								</div>
+								<input type="text" class="form-control" id="zanr" placeholder="Žanr">
+							</div>
+							<div class="input-group form-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-film"></i></span>
+								</div>
+								<input type="text" class="form-control" id="opis" placeholder="Opis">
+							</div>
+							<div class="input-group form-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-film"></i></span>
+								</div>
+								<input type="number" value="0" class="form-control" id="cijena" placeholder="Cijena">
+							</div>
+							<div class="input-group form-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-film"></i></span>
+								</div>
+								<input type="Date" class="form-control" id="datum" placeholder="Datum">
+							</div>
+							<div class="input-group form-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-film"></i></span>
+								</div>
+								<input type="number"  min="1" max="10" class="form-control" id="srednja_ocjena" placeholder="Ocjena">
+							</div>
+							
+							
+							
+							
+							<div class="form-group">
+								<input type="submit" value="Pretraži" class="btn float-right login_btn">
+							</div>
+						</form>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+		
+		<!-- Lista filmova kao kartice -->
+		<section class="top d-none" id="lista">	
+			
+			<h2>FILMOVI:</h2>
+			<hr class=" accent-2  d-inline-block" >
+			<h2>
+			<div class="dropdown">
+			  
+			  
+			  <a href="pretraga.html" class="btn btn-danger" role="button" aria-pressed="true">Pretraga po kriterijumu</a>
+			 </div>
+			
+			</h2>			
+			<!--First slide-->
+			<div class="row "id="table">
+			</div>
+			
+
+		</section>
+	
+	<div class=" z-depth-1 d-none" id="filmPrikaz">
+		
+		<section class="text-center" id="prikaz">
+	
+	    <!-- Section heading -->
+	    <h3 class="font-weight-bold ">PREGLED PROJEKCIJA FILMA</h3>
+		<hr class=" accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 300px;">
+	
+		 <div class="row">
+	     
+	
+	      <div class="col-lg-12 text-center text-md-center">
+	        
+	       <div class="font-weight-normal" id="podaciFilm">
+	         
+	          
+	        </div>
+	
+	      </div>
+	    </div> 
+	    
+	    
+	
+	    <div class="row">
+		
+	<table class="table table-hover table-striped table-dark" id="tabela">
+				  
+				    <tr>
+				    <th scope="col">Naziv filma</th>
+				      <th scope="col">Datum održavanja</th>
+				      <th scope="col">Vrijeme početka</th>
+				      <th scope="col">Cijena</th>
+				      <th scope="col">Broj rezervacija</th>
+				      <th scope="col">Bioskop</th>
+				      <th scope="col">Sala</th>
+				       <th scope= "col">Opcija</th>
+				    </tr>
+				  
+				  
+				</table>
+				
+			</div>
+		</section>
+	</div>
+	
+	
+	
+	
+	 <!-- Obrazac za registraciju -->
+		<div class="d-none" id="kartica1">
+			<div class="d-flex justify-content-center h-100" style="
+    background-color: rgb(0,0,0,0.6);">
+				<div class="card" id="logcard">
+					<div class="card-header">
+						<h3>Popuni podatke</h3>
+						
+					</div>
+					<div class="card-body" style="background-color: rgba(0,0,0,0.0)">
+						<form>
+							<div class="input-group form-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-film"></i></span>
+								</div>
+								<input type="text" class="form-control" id="korisnickoIme" placeholder="Korisničko ime">
+								
+							</div>
+							<div class="input-group form-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-film"></i></span>
+								</div>
+								<input type="password" class="form-control" id="lozinka" placeholder="Lozinka">
+							</div>
+							<div id="filmic">
+							
+							</div>
+							
+							
+							
+							<div class="form-group">
+								<input id="rezervacija" value="Rezerviši" class="btn float-right login_btn">
+							</div>
+						</form>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+  <!-- Footer -->
+<footer class="footer bg-dark text-white">
+
+  <!-- Footer Links -->
+  <div class="container-fluid text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-6 mt-md-0 mt-3">
+
+        <!-- Content -->
+        <h5 class="text-uppercase">Bioskop Online</h5>
+         <hr class=" accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 100px;">
+        <p>Uživajte u najboljim filmovima  i rezervišite svoje mjesto na vrijeme.</p>
+		
+		
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      <!-- Grid column -->
+      <!-- mb-md-0 znaci da ce margina dolje u mediumu biti 0 -->
+      <div class="col-md-3 mb-md-0  mb-3">
+
+        <!-- Links -->
+        <h5 class="text-uppercase">Žanrovi:</h5>
+		<hr class=" accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 100px;">
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Romantika</a>
+          </li>
+          <li>
+            <a href="#!">Horor</a>
+          </li>
+		  
+		   <li>
+            <a href="#!">Akcija</a>
+          </li>
+           <li>
+            <a href="pretraga.html">Pretraži po žanru</a>
+          </li>
+        
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <!-- Links -->
+        <h5 class="text-uppercase">Pregled:</h5>
+		<hr class=" accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 100px;">
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="filmovi.html">Dostupni filmovi</a>
+          </li>
+          <li>
+            <a href="bioskopi.html">Bioskopi</a>
+          </li>
+		   <li>
+            <a href="register.html">Registracija</a>
+          </li>
+         
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  
+</footer>
+<!-- Footer -->
+
+
+
+<!-- Copyright -->
+  <div class="footer-copyright text-center py-3 ">© 2020 Copyright:
+    <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+  </div>
+  <!-- Copyright -->
+		
+				
+			
+				
+				
+				
+		
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+</body>
+</html>

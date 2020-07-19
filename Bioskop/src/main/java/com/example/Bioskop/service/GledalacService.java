@@ -48,9 +48,9 @@ public class GledalacService {
 		gledalac.setPrezime(g.getPrezime());
 		gledalac.setKontaktTelefon(g.getKontaktTelefon());
 		gledalac.setDatumRodjenja(g.getDatumRodjenja());
-		gledalac.setEadresa(g.getEadresa());
+		gledalac.setEMail(g.getEMail());
 		//nez jel ovako treba uloga i aktivnost
-		gledalac.setUloga(g.getUloga());
+		gledalac.setUloga("Gledalac");
 		gledalac.setAktivan(true);
 		
 		return this.gledalacRepository.save(gledalac);

@@ -3,13 +3,16 @@
 <head>
 	<title>Bioskop-Naslovna</title>
 	<meta charset="utf-8"/>
-	<link rel="stylesheet" th:href="@{/css/naslovna.css}"/>
+	<link rel="stylesheet" href="/css/naslovna.css"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet">
-  	<link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet">		
+  	<link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet">	
+  	 <link rel="stylesheet" href="/css/bioskopi.css"/>
+  	 <script src="/js/jquery.min.js"></script>
+     <script type="text/javascript" src="/js/bioskopi.js"></script>	
 </head>
 	
 <body>
@@ -25,28 +28,19 @@
 
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<div class="navbar-nav ml" >
-					<a th:href="${'/'}" class="nav-item nav-link active">Početna</a>
-					<div class="nav-item dropdown">
-						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Filmovi</a>
-						<div class="dropdown-menu">
-							<a th:href="${'/filmovi'}" class="dropdown-item">Svi filmovi</a>
-							<a href="#" class="dropdown-item">Raspored</a>
-							<a th:href="${'/pretraga'}" class="dropdown-item">Pretraga</a>
-						</div>
-					</div>
-					<a th:href="${'/bioskopi'}" class="nav-item nav-link">Bioskop</a>
-					<a href="#" class="nav-item nav-link">O nama</a>
-					<a href="#" class="nav-item nav-link">Kontakt</a>
+					<a href="index.html" class="nav-item nav-link ">Početna</a>
+					<a href="filmovi.html" class="nav-item nav-link ">Filmovi</a>
+					<a href="pretraga.html" class="nav-item nav-link ">Pretraga</a>
+					<a href="bioskopi.html" class="nav-item nav-link active">Bioskop</a>
 					
 				</div>
 				<div class="navbar-nav ml-auto">
-					<a  th:href="${'/login'}" class="nav-item nav-link">Login</a>
-					<a th:href="${'/register'}" class="nav-item nav-link">Register</a>
+					<a  href="login.html" class="nav-item nav-link">Login</a>
+					<a href="register.html" class="nav-item nav-link">Register</a>
 				</div>
 				
 			</div>
 		</nav>
-		
 		
 		<!--SLider slika za filmove-->
 		
@@ -65,7 +59,7 @@
 					<div class="carousel-caption d-none d-md-block">
 						<h1>I Still Believe</h1>
 						<h2>OD 25.07 U BIOSOPIMA</h2>
-						<a class="btn btn-danger" href="#" role="button">Rezerviši</a>
+						
 					</div>
 				</div>
 				<div class="carousel-item">
@@ -73,7 +67,7 @@
 					<div class="carousel-caption d-none d-md-block">
 						<h1>Tenet</h1>
 						<h2>OD 03.07 U BIOSKOPIMA </h2>
-						<a class="btn btn-danger" href="#" role="button">Rezerviši</a>
+						
 					</div>
 				</div>
 				<div class="carousel-item">
@@ -81,7 +75,7 @@
 					<div class="carousel-caption d-none d-md-block">
 						<h1>Wonder woman 2</h1>
 						<h2>OD 10.07 U BIOSKOPIMA</h2>
-						<a class="btn btn-danger" href="#" role="button">Rezerviši</a>
+						
 					</div>
 				</div>
 				<div class="carousel-item">
@@ -89,7 +83,7 @@
 					<div class="carousel-caption d-none d-md-block">
 						<h1>Artemis</h1>
 						<h2>OD 05.08 U BIOSKOPIMA</h2>
-						<a class="btn btn-danger" href="#" role="button">Rezerviši</a>
+						
 					</div>
 				</div>
 			</div>
@@ -102,24 +96,120 @@
 			</a>
 		</div>
 		
-		<!-- boxovi za neki uvod  sta se radiogroup-->
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-sm-12 col-md-6 col-xl-6">
-					<h2><i class="fa fa-ticket" aria-hidden="true"></i><b>SISTEM ZAKAZIVANJA</b></h2>
-					<p>Otkrijte najnovije filmove i ne propustite šansu da ga pogledate.
-						Putem ove aplikacije rezervišite kartu za film potpuno besplatno.
-					</p>
-				</div>
-				<div class="col-sm-12 col-md-6 col-xl-6">
-					<h2><i class="fa fa-video-camera" aria-hidden="true"></i><b>BIOSKOPI</b></h2>
-					<p>Na ovom sajtu možete pronaći veliki spektar bioskopa, takodjer i sve potrebne informacije o njima, i pronaći onaj koji je najbliže Vama</p>
+		
+		
+		
+			<!-- Lista filmova kao kartice-->
+		<div class=" z-depth-1" id="bioskopi">
+		
+		<section class="text-center" id="prikaz" >
+	
+	    <!-- Section heading -->
+	    <h3 class="font-weight-bold ">PREGLED BIOSKOPA:</h3>
+		<hr class=" accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 300px;">
+	
+	    <div class="row">
+		
+	<table class="table table-hover table-striped table-dark" id="tabela">
+				  
+				     <tr>
+				      
+				      <th scope="col">Naziv</th>
+				      <th scope="col">Adresa</th>
+				      <th scope="col">Broj centrale</th>
+				      <th scope="col">Email</th>
+				      <th scope="col">Repertoar</th>
+				    </tr>
+				  
+				  
+				</table>
+				
+			</div>
+		</section>
+	</div>
+	
+	<!-- MENADZER-REPERTOAR BIOSKOPA -->
+	<div class=" z-depth-1 d-none" id="repertoar">
+		
+		<section class="text-center" id="prikaz">
+	
+	    <!-- Section heading -->
+	    <h3 class="font-weight-bold ">REPERTOAR ODABRANOG BIOSKOPA</h3>
+		<hr class=" accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 300px;">
+	
+	    <div class="row">
+		
+	<table class="table table-hover table-striped table-dark" id="tabela1">
+				  
+				    <tr>
+				      <th scope="col">Bioskop</th>
+				    <th scope="col">Naziv filma</th>
+				      <th scope="col">Datum održavanja</th>
+				      <th scope="col">Vrijeme početka</th>
+				      <th scope="col">Cijena</th>
+				      <th scope="col">Broj rezervacija</th>
+				      <th scope="col">Sala</th>
+				       <th scope="col">Opcija</th>
+				    </tr>
+				  
+				  
+				</table>
+				
+			</div>
+		</section>
+	</div>
+	
+	 <!-- Obrazac za rezervaciju -->
+		<div class="d-none" id="kartica1">
+			<div class="d-flex justify-content-center h-100" style="
+    background-color: rgb(0,0,0,0.6);
+    padding-bottom: 20px;
+">
+				<div class="card" id="logcard">
+					<div class="card-header">
+						<h3>Popuni podatke</h3>
+						
+					</div>
+					<div class="card-body" style="background-color: rgba(0,0,0,0.0)">
+						<form>
+							<div class="input-group form-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-film"></i></span>
+								</div>
+								<input type="text" class="form-control" id="korisnickoIme" placeholder="Korisničko ime">
+								
+							</div>
+							<div class="input-group form-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-film"></i></span>
+								</div>
+								<input type="password" class="form-control" id="lozinka" placeholder="Lozinka">
+							</div>
+							<div id="filmic">
+							
+							</div>
+							
+							
+							
+							<div class="form-group">
+								<input id="rezervacija" value="Rezerviši" class="btn float-right login_btn" >
+							</div>
+						</form>
+					</div>
+					<div class="card-footer">
+						<div class="d-flex justify-content-center links">
+							Niste prijavljeni?
+						</div>
+						<div class="d-flex justify-content-center">
+							<a href="register.html">Registrujte se</a>
+						</div>
+					</div>
+					
 				</div>
 			</div>
 		</div>
-		
-		
-		
+	
+
 		
 		
 		
@@ -163,11 +253,12 @@
           <li>
             <a href="#!">Horor</a>
           </li>
-		   <li>
-            <a href="#!">Komedija</a>
-          </li>
+		  
 		   <li>
             <a href="#!">Akcija</a>
+          </li>
+           <li>
+            <a href="pretraga.html">Pretraži po žanru</a>
           </li>
         
         </ul>
@@ -184,13 +275,13 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="#!">Dostupni filmovi</a>
+            <a href="filmovi.html">Dostupni filmovi</a>
           </li>
           <li>
-            <a href="#!">Repertoar</a>
+            <a href="bioskopi.html">Bioskopi</a>
           </li>
 		   <li>
-            <a href="#!">Pretraga</a>
+            <a href="register.html">Registracija</a>
           </li>
          
         </ul>
@@ -217,10 +308,11 @@
   <!-- Copyright -->
 		
 				
+			
 				
 				
 		
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 

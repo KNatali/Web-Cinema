@@ -27,7 +27,7 @@ public class Korisnik implements Serializable{
 	@Column
 	protected String kontaktTelefon;
 	@Column
-	protected String Eadresa;
+	protected String email;
 	@Column
 	protected String datumRodjenja;
 	@Column
@@ -36,7 +36,21 @@ public class Korisnik implements Serializable{
 	protected Boolean aktivan;
 	
 	
+	public Korisnik() {}
 	
+	public Korisnik(Long id,String korisnickoIme, String lozinka, String ime, String prezime, String kontaktTelefon,
+			String eadresa, String datumRodjenja,String uloga) {
+		super();
+		this.id=id;
+		this.korisnickoIme = korisnickoIme;
+		this.lozinka = lozinka;
+		this.ime = ime;
+		this.prezime = prezime;
+		this.kontaktTelefon = kontaktTelefon;
+		this.email = eadresa;
+		this.datumRodjenja = datumRodjenja;
+		this.uloga=uloga;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -73,11 +87,11 @@ public class Korisnik implements Serializable{
 	public void setKontaktTelefon(String kontakt_telefon) {
 		this.kontaktTelefon = kontakt_telefon;
 	}
-	public String getEadresa() {
-		return Eadresa;
+	public String getEMail() {
+		return email;
 	}
-	public void setEadresa(String e_adresa) {
-		this.Eadresa = e_adresa;
+	public void setEMail(String e_adresa) {
+		this.email= e_adresa;
 	}
 	public String getDatumRodjenja() {
 		return datumRodjenja;

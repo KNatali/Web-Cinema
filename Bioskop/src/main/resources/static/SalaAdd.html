@@ -1,16 +1,28 @@
+ <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>Bioskop-Naslovna-Gledalac</title>
+	<title>Register</title>
 	<meta charset="utf-8"/>
-	
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet">
-  	<link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet">	
-  	<link rel="stylesheet" th:href="@{/css/profilGledalac.css}"/>	
+  	<link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet">
+  	
+  		<!--Bootsrap 4 CDN-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <!--Fontawesome CDN-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+	<!--Custom styles-->
+	<link rel="stylesheet" type="text/css" href="/css/register.css"/>
+	  <script src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/salaAdd.js"></script>		
 </head>
 	
 <body>
@@ -26,79 +38,63 @@
 
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<div class="navbar-nav ml" >
-					<a th:href="${'/'}" class="nav-item nav-link active">Početna</a>
-					<div class="nav-item dropdown">
-						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Filmovi</a>
-						<div class="dropdown-menu">
-							<a th:href="${'/filmovi'}" class="dropdown-item">Svi filmovi</a>
-							<a href="#" class="dropdown-item">Raspored</a>
-							<a th:href="${'/pretraga'}" class="dropdown-item">Pretraga</a>
-						</div>
-					</div>
-					<a href="#" class="nav-item nav-link">Bioskop</a>
-					<a href="#" class="nav-item nav-link">O nama</a>
-					<a href="#" class="nav-item nav-link">Kontakt</a>
+					<a href="index.html" class="nav-item nav-link ">Početna</a>
+					<a href="filmovi.html" class="nav-item nav-link ">Filmovi</a>
+					<a href="pretraga.html" class="nav-item nav-link ">Pretraga</a>
+					<a href="bioskopi.html" class="nav-item nav-link">Bioskop</a>
 					
 				</div>
 				<div class="navbar-nav ml-auto">
-					<a  href="#" class="nav-item nav-link">Moj profil</a>
-					<a th:href="${'/'}" class="nav-item nav-link">Log Out</a>
+					<a  href="login.html" class="nav-item nav-link">Login</a>
+					<a href="register.html" class="nav-item nav-link">Register</a>
 				</div>
 				
 			</div>
 		</nav>
 		
-		
-	<div class="container my-5 py-5 z-depth-1">
-	
-	
-	  <!--Section: Content-->
-	  <section class="text-center">
-	
-	    <!-- Section heading -->
-	    <h3 class="font-weight-bold ">PREGLED NEAKTIVNIH MENADŽERA</h3>
-		<hr class=" accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 200px;">
-	
-	    <div class="row">
-	      
-	        
-				
-				<table class="table table-hover table-striped table-dark">
-				  <thead>
-				    <tr>
-				      <th scope="col">Id</th>
-				      <th scope="col">Korisničko ime</th>
-				      <th scope="col">Ime</th>
-				      <th scope="col">Prezime</th>
-				      <th scope="col">Aktivan</th>
-				      <th scope="col">Aktiviraj</th>
-				    </tr>
-				  </thead>
-				  <tbody>
-				    <tr th:each="menadzer:${menadzeri}">
-				      <th scope="row" th:text="${menadzer.id}"></th>
-				      <td th:text="${menadzer.korisnickoIme}"></td>
-				      <td th:text="${menadzer.ime}"></td>
-				      <td th:text="${menadzer.prezime}"></td>
-				      <td th:text="${menadzer.aktivan}"></td>
-				      <td><a class="text-danger" th:href="${'/menadzeri/' + menadzer.id}">Aktiviraj Nalog</a></td>
-				    </tr>
-				  </tbody>
-				</table>
-	          
-	
-	        
-	    </div>
-	
-	  </section>
-	  <!--Section: Content-->
-	
-	
-	</div>
-		
-		
-		
-		
+		<!-- kartica sa loginom -->
+		<div class="container">
+			<div class="d-flex justify-content-center h-100">
+				<div class="card">
+					<div class="card-header">
+						<h3>Dodavanje sale:</h3>
+					</div>
+					<div class="card-body">
+						<form id="formSala">
+							<div class="input-group form-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-ellipsis-h"></i></span>
+								</div>
+								<input type="text" id="oznakaSale" class="form-control" placeholder="Oznaka sale" required>
+								
+							</div>
+							<div class="input-group form-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-ellipsis-h"></i></span>
+								</div>
+								<input type="number"  min="0" max="500"id="kapacitet" class="form-control" placeholder="Kapacitet" required>
+							</div>
+							
+							<div class="form-group input-group">
+						    	<div class="input-group-prepend">
+								    <span class="input-group-text"> <i class="fa fa-ellipsis-h"></i> </span>
+								</div>
+								
+					    		<input name="" id="bioskop" class="form-control" placeholder="Naziv bioskopa" type="text">
+					   		 </div>
+					   		
+					
+						    
+							
+							<div class="form-group">
+								<input type="submit" value="Dodaj" class="btn float-right login_btn">
+							</div>
+						</form>
+					</div>
+					
+				</div>
+			</div>
+		</div>
 		
 		
 		
@@ -144,11 +140,12 @@
           <li>
             <a href="#!">Horor</a>
           </li>
-		   <li>
-            <a href="#!">Komedija</a>
-          </li>
+		  
 		   <li>
             <a href="#!">Akcija</a>
+          </li>
+           <li>
+            <a href="pretraga.html">Pretraži po žanru</a>
           </li>
         
         </ul>
@@ -165,13 +162,13 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="#!">Dostupni filmovi</a>
+            <a href="filmovi.html">Dostupni filmovi</a>
           </li>
           <li>
-            <a href="#!">Repertoar</a>
+            <a href="bioskopi.html">Bioskopi</a>
           </li>
 		   <li>
-            <a href="#!">Pretraga</a>
+            <a href="register.html">Registracija</a>
           </li>
          
         </ul>
@@ -198,10 +195,10 @@
   <!-- Copyright -->
 		
 				
-				
+			
 				
 		
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 

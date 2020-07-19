@@ -18,5 +18,15 @@ public interface FilmRepository extends JpaRepository<Film,Long>{
 	
 	List<Film> findBySrednjaOcjenaBetween(Double ol,Double oh);
 	
+	List<Film> findAllByOrderByNaziv();
+	
+	List<Film> findAllByOrderBySrednjaOcjenaDesc();
+	
+	List<Film> findAllByOrderByTrajanje();
+	
+	Film findByNazivIgnoreCase(String naziv);
+	
+	
+	
 
 }

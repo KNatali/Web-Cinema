@@ -8,12 +8,12 @@ body{
 	margin:  0;
 	padding: 0;
 	font-family: "Trebuchet MS", Tahoma, sans-serif;
-	
+	background-color:white;
 }
 
 .carousel-caption h1,.carousel-caption h2{
 	color:black;
-	background:rgba(255,255,255,0.5);
+	background:rgba(255,255,255,0.9);
 	background-transparent:50%;
 }
 
@@ -67,16 +67,14 @@ footer li a:hover{
 	text-decoration:none;
 }
 
-section{
-	background-color:white;
-	margin:15px;
-}
+
+
 
 section h2{
-	background-color:white;
+	
 	text-align:center;
 	padding:25px;
-	color:black;
+	color:white;
 }
 
 section hr{
@@ -105,7 +103,3 @@ section hr{
 .row{
 	margin-bottom:10px;
 }
-
-
-
-

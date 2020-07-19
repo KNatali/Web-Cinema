@@ -33,20 +33,34 @@ public class Film implements Serializable {
 	@Column
 	private Double srednjaOcjena;
 	
+	public Film() {}
+	
+	
+	
+	public Film(String naziv, String opis, String zanr,int trajanje, Double srednjaOcjena) {
+		super();
+		this.naziv = naziv;
+		this.opis = opis;
+		this.zanr = zanr;
+		this.trajanje=trajanje;
+		this.srednjaOcjena = srednjaOcjena;
+	}
+
+
+
 	//druga strana veze
 	@ManyToMany(mappedBy="odgledani_filmovi")
 	private Set<Gledalac> gledaoci_koji_su_odgledali_film=new HashSet<>();
 	
-	@ManyToMany(mappedBy="rezervisani_filmovi")
+	/*@ManyToMany(mappedBy="rezervisani_filmovi")
 	private Set<Gledalac> gledaoci_koji_su_rezervisali_film=new HashSet<>();
-
+*/
 	//druga strana veze,film ima vise ocjena
 	@OneToMany(mappedBy="film",fetch=FetchType.LAZY,cascade=CascadeType.ALL)
 	private Set<Ocjena> ocjene=new HashSet<>();
 	
 	@OneToMany(mappedBy="film")
 	private List<Terminski_raspored> projekcije=new ArrayList<>();
-	
 	
 	
 	
@@ -123,13 +137,13 @@ public class Film implements Serializable {
 		this.gledaoci_koji_su_odgledali_film = gledaoci_koji_su_odgledali_film;
 	}
 
-	public Set<Gledalac> getGledaoci_koji_su_rezervisali_film() {
+	/*public Set<Gledalac> getGledaoci_koji_su_rezervisali_film() {
 		return gledaoci_koji_su_rezervisali_film;
 	}
 
 	public void setGledaoci_koji_su_rezervisali_film(Set<Gledalac> gledaoci_koji_su_rezervisali_film) {
 		this.gledaoci_koji_su_rezervisali_film = gledaoci_koji_su_rezervisali_film;
-	}
+	}*/
 	
 	@Override
 	public String toString() {

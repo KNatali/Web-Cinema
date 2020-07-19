@@ -8,6 +8,11 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	 
+	  <script src="/js/jquery.min.js"></script>
+	   <script type="text/javascript" src="/js/register.js"></script>
+	 
+	 
+	
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet">
@@ -20,7 +25,8 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 	<!--Custom styles-->
-	<link rel="stylesheet" type="text/css" th:href="@{/css/register.css}"/>		
+	<link rel="stylesheet" type="text/css" href="/css/register.css"/>	
+	
 </head>
 	
 <body>
@@ -36,29 +42,23 @@
 
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<div class="navbar-nav ml" >
-					<a th:href="${'/'}" class="nav-item nav-link active">Početna</a>
-					<div class="nav-item dropdown">
-						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Filmovi</a>
-						<div class="dropdown-menu">
-							<a th:href="${'/filmovi'}" class="dropdown-item">Svi filmovi</a>
-							<a href="#" class="dropdown-item">Raspored</a>
-							<a th:href="${'/pretraga'}" class="dropdown-item">Pretraga</a>
-						</div>
-					</div>
-					<a href="#" class="nav-item nav-link">Bioskop</a>
-					<a href="#" class="nav-item nav-link">O nama</a>
-					<a href="#" class="nav-item nav-link">Kontakt</a>
-					
+					<a href="index.html" class="nav-item nav-link ">Početna</a>
+					<a href="filmovi.html" class="nav-item nav-link ">Filmovi</a>
+					<a href="pretraga.html" class="nav-item nav-link ">Pretraga</a>
+					<a href="bioskopi.html" class="nav-item nav-link">Bioskop</a>
 				</div>
 				<div class="navbar-nav ml-auto">
-					<a  th:href="${'/login'}" class="nav-item nav-link">Login</a>
-					<a href="#" class="nav-item nav-link">Register</a>
+					<a  href="login.html" class="nav-item nav-link">Login</a>
+					<a href="register.html" class="nav-item nav-link active">Register</a>
 				</div>
 				
 			</div>
 		</nav>
 		
-		<!-- kartica sa loginom -->
+
+		
+		<!-- kartica za registraciju tj forma -->
+		
 		<div class="container">
 			<div class="d-flex justify-content-center h-100">
 				<div class="card">
@@ -66,32 +66,32 @@
 						<h3>Registracija</h3>
 					</div>
 					<div class="card-body">
-						<form th:action="@{/save-korisnik}" th:object="${korisnik}" method="post">
+						<form id="registerForm">
 							<div class="input-group form-group">
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fas fa-user"></i></span>
 								</div>
-								<input type="text" th:field="*{korisnickoIme}" class="form-control" placeholder="korisnicko ime" required>
+								<input type="text" id="korisnickoIme" class="form-control" placeholder="korisnicko ime" required>
 								
 							</div>
 							<div class="input-group form-group">
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fas fa-key"></i></span>
 								</div>
-								<input type="password" th:field="*{lozinka}" class="form-control" placeholder="lozinka" required>
+								<input type="password" id="lozinka" class="form-control" placeholder="lozinka" required>
 							</div>
 							<div class="input-group form-group">
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fas fa-user"></i></span>
 								</div>
-								<input type="text" th:field="*{ime}" class="form-control" placeholder="ime" required>
+								<input type="text" id="ime" class="form-control" placeholder="ime" required>
 								
 							</div>
 							<div class="input-group form-group">
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fas fa-user"></i></span>
 								</div>
-								<input type="text" th:field="*{prezime}" class="form-control" placeholder="prezime" required>
+								<input type="text" id="prezime" class="form-control" placeholder="prezime" required>
 								
 							</div>
 							 <div class="form-group input-group">
@@ -99,23 +99,23 @@
 								    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
 								</div>
 								
-					    		<input name=""  th:field="*{kontaktTelefon}" class="form-control" placeholder="Kontakt telefon" type="text">
+					    		<input name=""  id="kontaktTelefon" class="form-control" placeholder="Kontakt telefon" type="text">
 					   		 </div>
 					   		
 					   		 <div class="form-group input-group">
 						    	<div class="input-group-prepend">
 								    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
 								 </div>
-						        <input name="" th:field="*{Eadresa}" class="form-control" placeholder="Email adresa" type="email">
+						        <input name="mail" id="mail" class="form-control" placeholder="Email adresa" type="email">
 						    </div>
 						     <div class="form-group input-group">
 						    	<div class="input-group-prepend">
 								    <span class="input-group-text"> <i class="fa fa-calendar"></i> </span>
 								 </div>
-						        <input name="" th:field="*{datumRodjenja}" class="form-control" placeholder="Datum rođenja" type="date">
+						        <input name="" id="datumRodjenja" class="form-control" placeholder="Datum rođenja" type="date">
 						    </div>
 						   
-						    
+						   <!--  
 						    <div class="form-group input-group">
 						    	<div class="input-group-prepend">
 								    <span class="input-group-text"> <i class="fa fa-building"></i> </span>
@@ -126,7 +126,7 @@
 									<option value="Menadzer" th:text="Menadžer"></option>
 								</select>
 							</div>
-						    
+						    -->
 						    
 						    
 							<div class="row align-items-center remember">
@@ -142,7 +142,7 @@
 							Imate nalog?
 						</div>
 						<div class="d-flex justify-content-center">
-							<a th:href="${'/login'}" >Prijavite se</a>
+							<a href="login.html" >Prijavite se</a>
 						</div>
 					</div>
 				</div>
@@ -155,7 +155,7 @@
 		
 		
 		 <!-- Footer -->
-<footer class="page-footer bg-dark text-white">
+<footer class="footer bg-dark text-white">
 
   <!-- Footer Links -->
   <div class="container-fluid text-center text-md-left">
@@ -193,11 +193,12 @@
           <li>
             <a href="#!">Horor</a>
           </li>
-		   <li>
-            <a href="#!">Komedija</a>
-          </li>
+		  
 		   <li>
             <a href="#!">Akcija</a>
+          </li>
+           <li>
+            <a href="pretraga.html">Pretraži po žanru</a>
           </li>
         
         </ul>
@@ -214,13 +215,13 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="#!">Dostupni filmovi</a>
+            <a href="filmovi.html">Dostupni filmovi</a>
           </li>
           <li>
-            <a href="#!">Repertoar</a>
+            <a href="bioskopi.html">Bioskopi</a>
           </li>
 		   <li>
-            <a href="#!">Pretraga</a>
+            <a href="register.html">Registracija</a>
           </li>
          
         </ul>
@@ -247,13 +248,14 @@
   <!-- Copyright -->
 		
 				
+			
 				
 				
 		
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<!--  
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
+-->
 	
 </body>
 	

@@ -2,6 +2,7 @@ package com.example.Bioskop.entity;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -10,6 +11,8 @@ import javax.persistence.ManyToMany;
 @Entity
 public class Gledalac extends Korisnik{
 	
+	
+
 	@ManyToMany
 	@JoinTable(name="lista_odgledanih_filmova",
 	joinColumns = @JoinColumn(name = "gledalac_id", referencedColumnName = "id"),
@@ -20,8 +23,8 @@ public class Gledalac extends Korisnik{
 	@ManyToMany
 	@JoinTable(name="lista_rezervisanih_filmova",
 	joinColumns = @JoinColumn(name = "gledalac_id", referencedColumnName = "id"),
-    inverseJoinColumns = @JoinColumn(name = "film_id", referencedColumnName = "id"))
-	private Set<Film> rezervisani_filmovi=new HashSet<>();
+    inverseJoinColumns = @JoinColumn(name = "terminski_raspored_id", referencedColumnName = "id"))
+	private Set<Terminski_raspored> rezervisani_filmovi=new HashSet<>();
 	
 	@ManyToMany
 	@JoinTable(name="lista_ocjenjenih_filmova",
@@ -37,11 +40,11 @@ public class Gledalac extends Korisnik{
 		this.odgledani_filmovi = odgledani_filmovi;
 	}
 
-	public Set<Film> getRezervisani_filmovi() {
+	public Set<Terminski_raspored> getRezervisani_filmovi() {
 		return rezervisani_filmovi;
 	}
 
-	public void setRezervisani_filmovi(Set<Film> rezervisani_filmovi) {
+	public void setRezervisani_filmovi(Set<Terminski_raspored> rezervisani_filmovi) {
 		this.rezervisani_filmovi = rezervisani_filmovi;
 	}
 

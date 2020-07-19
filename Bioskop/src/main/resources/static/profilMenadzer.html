@@ -1,0 +1,414 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employees</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet">
+  	<link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet">
+  	
+  		<!--Bootsrap 4 CDN-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <!--Fontawesome CDN-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+	<!--Custom styles
+	 <link rel="stylesheet" type="text/css" href="/css/login.css"/>	-->
+	<link rel="stylesheet" type="text/css" href="/css/profilGledalac.css"/>
+    <script src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/profilMenadzer.js"></script>
+</head>
+<body>
+
+
+	<!-- navigacijski meni-->
+		<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+			<a href="#" class="navbar-brand">
+				<img src="/images/logo1.png" height="28" alt="CoolBrand">
+			</a>
+			<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<div class="navbar-nav ml" >
+					<a href="index.html" class="nav-item nav-link ">Početna</a>
+					<a href="filmovi.html" class="nav-item nav-link ">Filmovi</a>
+					<a href="pretraga.html" class="nav-item nav-link ">Pretraga</a>
+					<a href="bioskopi.html" class="nav-item nav-link">Bioskop</a>
+					
+				</div>
+				<div class="navbar-nav ml-auto">
+					<a  href="login.html" class="nav-item nav-link active">Login</a>
+					<a href="register.html" class="nav-item nav-link">Register</a>
+				</div>
+				
+			</div>
+		</nav>
+
+
+
+
+<!-- IZGLED PROFILA-PRIKAZE SE TEK NAKON STO SE NEKO ULOGUJE -->
+<div id="profil1" class="container my-5 py-5 z-depth-1 d-none" >
+	
+	
+	  <!--Section: Content-->
+	  <section class="text-center">
+	
+	    <!-- Section heading -->
+	    <h3 class="font-weight-bold ">MOJ PROFIL</h3>
+		<hr class=" accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 200px;">
+	
+	    <div class="row">
+	   
+		
+		<!-- DIO ZA MENADZERA -->
+	  	<div class="col-lg-6 d-none" id="menadzer">
+
+	        <img src="/images/profil1.png" style="width:40%"/>
+		
+			<!-- <button type="button" class="btn btn-outline-danger btn-lg btn-block">Pregled bioskopa</button>
+			<button type="button" class="btn btn-outline-danger btn-lg btn-block">Izmjena-sala</button>
+			<button type="button" class="btn btn-outline-danger btn-lg btn-block">Izmjena-raspored</button>-->
+	        
+		</div>
+		
+		
+	      <div class="col-lg-5 text-center text-md-left" id="podaci">
+	
+	        <h2 id="ime" class="h2-responsive text-center text-md-left product-name font-weight-bold dark-grey-text mb-1 ml-xl-5 ml-4"></h2>
+	        
+	       
+	        <div class="font-weight-normal">
+	          
+	          
+	          <div class="ml-xl-5 ml-4">
+	            <p><strong>Korisnicko ime: </strong><span id="korisnicko"></span></p>
+	          </div>
+	         <div class="ml-xl-5 ml-4">
+	            <p><strong>Lozinka: </strong><span id="loz"></span></p>
+	          </div>
+	          <div class="ml-xl-5 ml-4">
+	            <p><strong>Ime: </strong><span id="name"></span></p>
+	          </div>
+	         <div class="ml-xl-5 ml-4">
+	            <p><strong>Prezime: </strong><span id="prezime"></span></p>
+	          </div>
+			<div class="ml-xl-5 ml-4">
+	            <p><strong>Kontakt telefon: </strong><span id="telefon"></span></p>
+	          </div>
+			   <div class="ml-xl-5 ml-4">
+	            <p><strong>E adresa: </strong><span id="email"></span></p>
+	          </div>
+			 <div class="ml-xl-5 ml-4">
+	            <p><strong>Datum rođenja: </strong><span id="datum"></span></p>
+	          </div>
+			<div class="ml-xl-5 ml-4">
+	            <p><strong>Uloga: </strong><span id="role"></span></p>
+	          </div>
+	          
+	          
+	
+	        </div>
+	
+	      </div>
+	    </div>
+	
+	  </section>
+	  <!--Section: Content-->
+	
+	
+	</div>
+	
+	
+	
+	
+	<!-- MENADZER-LISTA BIOSKOPA ZA KOJE JE ZADUZEN -->
+	<div class=" py-3 z-depth-1 d-none" id="bioskopi">
+		
+		<section class="text-center" id="prikaz">
+	
+	    <!-- Section heading -->
+	    <h3 class="font-weight-bold ">LISTA BIOSKOPA</h3>
+		<hr class=" accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 300px;">
+	
+	    <div class="row">
+		
+	<table class="table table-hover table-striped table-dark" id="tabela4">
+				  
+				    <tr>
+				    <th scope="col">Naziv</th>
+				      <th scope="col">Adresa</th>
+				      <th scope="col">Broj centrale</th>
+				      <th scope="col">E mail</th>
+				        <th scope="col">Opcija</th>
+				          <th scope="col">Opcija</th>
+	
+				      
+				      
+				    </tr>
+				  
+				  
+				</table>
+				
+			</div>
+		</section>
+	</div>
+	
+	
+	<!-- MENADZER-LISTA SALA NJEGOVIH BIOSKOPA -->
+	<div class=" py-3 z-depth-1 d-none" id="sale">
+		
+		<section class="text-center" id="prikaz">
+	
+	    <!-- Section heading -->
+	    <h3 class="font-weight-bold ">LISTA SALA</h3>
+		<hr class=" accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 300px;">
+	
+	    <div class="row">
+		
+	<table class="table table-hover table-striped table-dark" id="tabela5">
+				  
+				    <tr>
+				    <th scope="col">Bioskop</th>
+				    <th scope="col">Oznaka sale</th>
+				      <th scope="col">Kapacitet</th>
+				      <th scope="col">Opcija</th>
+				       <th scope="col">Opcija</th>
+	
+				      
+				      
+				    </tr>
+				  
+				  
+				  
+				</table>
+				
+			</div>
+		</section>
+	</div>
+	
+	
+	<!-- MENADZER-REPERTOAR BIOSKOPA -->
+	<div class=" py-3 z-depth-1 d-none" id="repertoar">
+		
+		<section class="text-center" id="prikaz">
+	
+	    <!-- Section heading -->
+	    <h3 class="font-weight-bold ">REPERTOAR ODABRANOG BIOSKOPA</h3>
+		<hr class=" accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 300px;">
+	
+	    <div class="row">
+		
+	<table class="table table-hover table-striped table-dark" id="tabela6">
+				  
+				    <tr>
+				      <th scope="col">Bioskop</th>
+				    <th scope="col">Naziv filma</th>
+				      <th scope="col">Datum održavanja</th>
+				      <th scope="col">Vrijeme početka</th>
+				      <th scope="col">Cijena</th>
+				      <th scope="col">Broj rezervacija</th>
+				      <th scope="col">Sala</th>
+				       <th scope="col">Opcija</th>
+				    </tr>
+				  
+				  
+				</table>
+				
+			</div>
+		</section>
+	</div>
+	
+	
+	<!-- Obrazac za izmjenu sale-->
+		<div class="d-none" id="Izmjena-sala">
+			<div class="d-flex justify-content-center h-100">
+				<div class="card" id="logcard">
+					<div class="card-header">
+						<h3>Novi podaci za izabranu salu:</h3>
+						
+					</div>
+					<div class="card-body" style="background-color: rgba(0,0,0,0.5)">
+						<form >
+							<div id="izmjenaSala">
+							
+								Kapacitet:<div class='input-group form-group'><div class='input-group-prepend'><span class='input-group-text'><i class='fa fa-film'></i></span></div>
+					            <input type='number' class='form-control' id='kapacitet' placeholder='Kapacitet sale'  ></div>
+					            
+					            Oznaka sale:<div class='input-group form-group'><div class='input-group-prepend'><span class='input-group-text'><i class='fa fa-film'></i></span></div>
+					            <input type='text' class='form-control' id='oznakaSale' placeholder='Oznaka sale'  ></div>
+					            
+					            <div id="kek"></div>
+							</div>
+							
+							
+							
+							<div class="form-group">
+								<input id="izmijeni1" value="Izmijeni" class="btn float-right login_btn" >
+							</div>
+						</form>
+					</div>
+					
+					
+				</div>
+			</div>
+		</div>
+	
+	
+	<!-- Obrazac za izmjenu repertoara-->
+		<div class="d-none" id="Izmjena-repertoar">
+			<div class="d-flex justify-content-center h-100">
+				<div class="card" id="logcard" style="height:650px">
+					<div class="card-header">
+						<h3>Novi podaci za izabrani repertoar:</h3>
+						
+					</div>
+					<div class="card-body" style="background-color: rgba(0,0,0,0.5)">
+						<form >
+							<div id="izmjenaRepertoara">
+							
+								Naziv filma:<div class='input-group form-group'><div class='input-group-prepend'><span class='input-group-text'><i class='fa fa-film'></i></span></div>
+					            <input type='text' class='form-control' id='naziv' placeholder='Kapacitet sale' ></div>
+					            
+					            Datum odrzavanja:<div class='input-group form-group'><div class='input-group-prepend'><span class='input-group-text'><i class='fa fa-film'></i></span></div>
+					            <input type='date' class='form-control' id='datumOdrzavanja' placeholder='Datum odrzavanja'  ></div>
+					            
+					            Vrijeme pocetka:<div class='input-group form-group'><div class='input-group-prepend'><span class='input-group-text'><i class='fa fa-film'></i></span></div>
+					           	<input type='text' class='form-control' id='vrijemePocetka' placeholder='Vrijeme pocetka'   ></div>
+					            
+					            Cijena:<div class='input-group form-group'><div class='input-group-prepend'><span class='input-group-text'><i class='fa fa-film'></i></span></div>
+					           	<input type='number' class='form-control' id='cijena' placeholder='Cijena'   ></div>
+					            
+					            Sala:<div class='input-group form-group'><div class='input-group-prepend'><span class='input-group-text'><i class='fa fa-film'></i></span></div>
+					            <input type='text' class='form-control' id='salaOznaka' placeholder='Oznaka sale'   ></div>
+					            
+					            <div id="hehe"></div>
+							</div>
+							
+							
+							
+							<div class="form-group">
+								<input id="izmijeni2" value="Izmijeni" class="btn float-right login_btn" >
+							</div>
+						</form>
+					</div>
+					
+					
+				</div>
+			</div>
+		</div>
+	
+	
+	
+	
+	 <!-- Footer -->
+<footer class="footer bg-dark text-white">
+
+  <!-- Footer Links -->
+  <div class="container-fluid text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-6 mt-md-0 mt-3">
+
+        <!-- Content -->
+        <h5 class="text-uppercase">Bioskop Online</h5>
+         <hr class=" accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 100px;">
+        <p>Uživajte u najboljim filmovima  i rezervišite svoje mjesto na vrijeme.</p>
+		
+		
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      <!-- Grid column -->
+      <!-- mb-md-0 znaci da ce margina dolje u mediumu biti 0 -->
+      <div class="col-md-3 mb-md-0  mb-3">
+
+        <!-- Links -->
+        <h5 class="text-uppercase">Žanrovi:</h5>
+		<hr class=" accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 100px;">
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Romantika</a>
+          </li>
+          <li>
+            <a href="#!">Horor</a>
+          </li>
+		  
+		   <li>
+            <a href="#!">Akcija</a>
+          </li>
+           <li>
+            <a href="pretraga.html">Pretraži po žanru</a>
+          </li>
+        
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <!-- Links -->
+        <h5 class="text-uppercase">Pregled:</h5>
+		<hr class=" accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 100px;">
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="filmovi.html">Dostupni filmovi</a>
+          </li>
+          <li>
+            <a href="bioskopi.html">Bioskopi</a>
+          </li>
+		   <li>
+            <a href="register.html">Registracija</a>
+          </li>
+         
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  
+</footer>
+<!-- Footer -->
+
+
+
+<!-- Copyright -->
+  <div class="footer-copyright text-center py-3 ">© 2020 Copyright:
+    <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+  </div>
+  <!-- Copyright -->
+		
+				
+			
+	
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+ 	
+		
+</body>
+</html>

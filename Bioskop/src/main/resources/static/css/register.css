@@ -6,7 +6,7 @@ html,body{
 	margin:0;
 	padding:0;
 	background-color:#343a40;
-background-image: url("bioskop1.jpg");
+background-image: url("bioskop2.jpg");
 background-size: cover;
 background-repeat: no-repeat;
 height: 100%;
@@ -20,7 +20,7 @@ align-content: center;
 }
 
 .card{
-height: 650px;
+height: 600px;
 margin-top: auto;
 margin-bottom: auto;
 width: 400px;
@@ -109,6 +109,10 @@ color:#dc3545;
 	
 	padding-top:30px;
 	margin-bottom:0;
+}
+footer{
+	
+	padding-top:30px;
 }
 footer hr{
 	border-top: 2px solid #dc3545;

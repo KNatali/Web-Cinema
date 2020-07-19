@@ -1,4 +1,4 @@
- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!DOCTYPE HTML>
@@ -20,7 +20,9 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 	<!--Custom styles-->
-	<link rel="stylesheet" type="text/css" th:href="@{/css/register.css}"/>		
+	<link rel="stylesheet" type="text/css" href="/css/register.css"/>	
+	 <script src="/js/jquery.min.js"></script>
+	   <script type="text/javascript" src="/js/registerMenadzer.js"></script>	
 </head>
 	
 <body>
@@ -36,23 +38,15 @@
 
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<div class="navbar-nav ml" >
-					<a th:href="${'/'}" class="nav-item nav-link active">Početna</a>
-					<div class="nav-item dropdown">
-						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Filmovi</a>
-						<div class="dropdown-menu">
-							<a th:href="${'/filmovi'}" class="dropdown-item">Svi filmovi</a>
-							<a href="#" class="dropdown-item">Raspored</a>
-							<a th:href="${'/pretraga'}" class="dropdown-item">Pretraga</a>
-						</div>
-					</div>
-					<a href="#" class="nav-item nav-link">Bioskop</a>
-					<a href="#" class="nav-item nav-link">O nama</a>
-					<a href="#" class="nav-item nav-link">Kontakt</a>
+					<a href="index.html" class="nav-item nav-link ">Početna</a>
+					<a href="filmovi.html" class="nav-item nav-link ">Filmovi</a>
+					<a href="pretraga.html" class="nav-item nav-link ">Pretraga</a>
+					<a href="bioskopi.html" class="nav-item nav-link">Bioskop</a>
 					
 				</div>
 				<div class="navbar-nav ml-auto">
-					<a  href="#" class="nav-item nav-link">Moj profil</a>
-					<a th:href="${'/'}" class="nav-item nav-link">Log Out</a>
+					<a  href="login.html" class="nav-item nav-link">Login</a>
+					<a href="register.html" class="nav-item nav-link">Register</a>
 				</div>
 				
 			</div>
@@ -63,54 +57,78 @@
 			<div class="d-flex justify-content-center h-100">
 				<div class="card">
 					<div class="card-header">
-						<h3>Dodavanje bioskopa:</h3>
+						<h3>Registracija(Menadžer)</h3>
 					</div>
 					<div class="card-body">
-						<form th:action="@{/save-bioskop}" th:object="${bioskop}" method="post">
+						<form id="registerMenadzer">
 							<div class="input-group form-group">
 								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fa fa-video-camera"></i></span>
+									<span class="input-group-text"><i class="fas fa-user"></i></span>
 								</div>
-								<input type="text" th:field="*{naziv}" class="form-control" placeholder="Naziv bioskopa" required>
+								<input type="text" id="korisnickoIme" class="form-control" placeholder="korisnicko ime" required>
 								
 							</div>
 							<div class="input-group form-group">
 								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fa fa-video-camera"></i></span>
+									<span class="input-group-text"><i class="fas fa-key"></i></span>
 								</div>
-								<input type="text" th:field="*{adresa}" class="form-control" placeholder="Adresa" required>
+								<input type="password" id="lozinka" class="form-control" placeholder="lozinka" required>
 							</div>
-							
-							<div class="form-group input-group">
+							<div class="input-group form-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fas fa-user"></i></span>
+								</div>
+								<input type="text" id="ime" class="form-control" placeholder="ime" required>
+								
+							</div>
+							<div class="input-group form-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fas fa-user"></i></span>
+								</div>
+								<input type="text" id="prezime" class="form-control" placeholder="prezime" required>
+								
+							</div>
+							 <div class="form-group input-group">
 						    	<div class="input-group-prepend">
 								    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
 								</div>
-								<select class="custom-select" style="max-width: 120px;">
-								   	 <option selected="">+381</option>
-								   	 <option value="1">+387</option>
-								</select>
-					    		<input name=""  th:field="*{brojCentrale}" class="form-control" placeholder="Broj centrale" type="text">
+								
+					    		<input name=""  id="kontaktTelefon" class="form-control" placeholder="Kontakt telefon" type="text">
 					   		 </div>
 					   		
 					   		 <div class="form-group input-group">
 						    	<div class="input-group-prepend">
 								    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
 								 </div>
-						         <input name="" th:field="*{eMail}" class="form-control" placeholder="Email adresa" type="email">
+						        <input name="" id="mail" class="form-control" placeholder="Email adresa" type="email">
 						    </div>
-						    
+						     <div class="form-group input-group">
+						    	<div class="input-group-prepend">
+								    <span class="input-group-text"> <i class="fa fa-calendar"></i> </span>
+								 </div>
+						        <input name="" id="datum" class="form-control" placeholder="Datum rođenja" type="date">
+						    </div>
+						   
+						   <!--  
 						    <div class="form-group input-group">
 						    	<div class="input-group-prepend">
-								    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-								 </div>
-						         <input name="" th:field="*{menadzer.korisnickoIme}" class="form-control" placeholder="mendazer" type="text">
-						    </div>
-						     
-						   
+								    <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+								</div>
+								<select class="form-control" th:field="*{uloga}" required>
+									<option value="''" disabled selected hidden >Izaberite</option>
+									<option th:value="'Gledalac'" th:text="Gledalac"></option>
+									<option th:value="Menadzer" th:text="Menadžer"></option>
+									<option th:value="'Administrator'" th:text="Admin"></option>
+								</select>
+							</div>
+						    -->
 						    
-							
+						    
+							<div class="row align-items-center remember">
+								<input type="checkbox">Remember Me
+							</div>
 							<div class="form-group">
-								<input type="submit" value="Dodaj" class="btn float-right login_btn">
+								<input type="submit" value="Register" class="btn float-right login_btn">
 							</div>
 						</form>
 					</div>
@@ -125,7 +143,7 @@
 		
 		
 		 <!-- Footer -->
-<footer class="page-footer bg-dark text-white">
+<footer class="footer bg-dark text-white">
 
   <!-- Footer Links -->
   <div class="container-fluid text-center text-md-left">
@@ -163,11 +181,12 @@
           <li>
             <a href="#!">Horor</a>
           </li>
-		   <li>
-            <a href="#!">Komedija</a>
-          </li>
+		  
 		   <li>
             <a href="#!">Akcija</a>
+          </li>
+           <li>
+            <a href="pretraga.html">Pretraži po žanru</a>
           </li>
         
         </ul>
@@ -184,13 +203,13 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="#!">Dostupni filmovi</a>
+            <a href="filmovi.html">Dostupni filmovi</a>
           </li>
           <li>
-            <a href="#!">Repertoar</a>
+            <a href="bioskopi.html">Bioskopi</a>
           </li>
 		   <li>
-            <a href="#!">Pretraga</a>
+            <a href="register.html">Registracija</a>
           </li>
          
         </ul>
@@ -217,10 +236,12 @@
   <!-- Copyright -->
 		
 				
+			
+				
 				
 				
 		
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
@@ -228,3 +249,61 @@
 </body>
 	
 </html>
+
+<!-- kartica sa loginom -->
+		<div class="container">
+			<div class="d-flex justify-content-center h-100">
+				<div class="card">
+					<div class="card-header">
+						<h3>Dodavanje bioskopa:</h3>
+					</div>
+					<div class="card-body">
+						<form id="formBioskop">
+							<div class="input-group form-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-video-camera"></i></span>
+								</div>
+								<input type="text" id="naziv" class="form-control" placeholder="Naziv bioskopa" required>
+								
+							</div>
+							<div class="input-group form-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-video-camera"></i></span>
+								</div>
+								<input type="text" id="adresa" class="form-control" placeholder="Adresa" required>
+							</div>
+							
+							<div class="form-group input-group">
+						    	<div class="input-group-prepend">
+								    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+								</div>
+								
+					    		<input name=""  id="broj" class="form-control" placeholder="Broj centrale" type="text">
+					   		 </div>
+					   		
+					   		 <div class="form-group input-group">
+						    	<div class="input-group-prepend">
+								    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+								 </div>
+						         <input name="" id="mail" class="form-control" placeholder="Email adresa" type="email">
+						    </div>
+						    
+						    <div class="form-group input-group">
+						    	<div class="input-group-prepend">
+								    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+								 </div>
+						         <input name="" id="menadzer" class="form-control" placeholder="mendazer" type="text">
+						    </div>
+						     
+						   
+						    
+							
+							<div class="form-group">
+								<input type="submit" value="Dodaj" class="btn float-right login_btn">
+							</div>
+						</form>
+					</div>
+					
+				</div>
+			</div>
+		</div>

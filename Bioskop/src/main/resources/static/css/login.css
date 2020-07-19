@@ -25,6 +25,7 @@ margin-top: auto;
 margin-bottom: auto;
 width: 400px;
 background-color: rgba(0,0,0,0.5) !important;
+color:white;
 }
 
 .social_icon span{
@@ -132,4 +133,9 @@ footer li a:hover{
 .footer-copyright a:hover{
 	color:white;
 	text-decoration:none;
+}
+
+a:hover{
+	text-decoration:none;
+}
 }

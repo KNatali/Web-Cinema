@@ -1,7 +1,9 @@
 package com.example.Bioskop.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -11,9 +13,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -30,7 +29,7 @@ public class Bioskop implements Serializable{
 	@Column
 	private String brojCentrale;
 	@Column
-	private String eMail;
+	private String email;
 	
 	//jedan bioskop ima jednog menadzera
 	//cascade je persist jer ne zelim da mi se obrise menadzer ako obrisem bioskop,posto je taj menadzer mozda zaduzen za jos neki bioskop
@@ -39,30 +38,62 @@ public class Bioskop implements Serializable{
 	
 	//sale koje pripadaju tom bioskopu, dok jedna sala pripada samo jednom bioskopu
 	//orphanRemoval je true jer ako se izbrise sala iz liste,treba se izbrisati i iz baze jer sala moze pripadati samo jednom bioskopu
-	@OneToMany(mappedBy = "bioskop", fetch = FetchType.LAZY, cascade = CascadeType.ALL,orphanRemoval=true)
+	@OneToMany(mappedBy = "bioskop", fetch = FetchType.LAZY)
     private Set<Sala> sale = new HashSet<>();
 	
 	//bioskop ima vise rasporeda
-	@OneToMany(mappedBy="bioskop",fetch=FetchType.LAZY,cascade=CascadeType.ALL)
-	private Set<Raspored_filmova> rasporedi=new HashSet<>();
+	@OneToMany(mappedBy="bioskop")
+	private List<Raspored_filmova> rasporedi=new ArrayList<>();
 	
 
-	
+	public Bioskop() {}
 	
 	
 
 
-	public Set<Raspored_filmova> getRasporedi() {
+	public Bioskop(String naziv, String adresa, String brojCentrale, String eMail) {
+		super();
+		this.naziv = naziv;
+		this.adresa = adresa;
+		this.brojCentrale = brojCentrale;
+		this.email = eMail;
+	}
+
+	/*public Set<Raspored_filmova> getRasporedi() {
 		return rasporedi;
 	}
 
 	public void setRasporedi(Set<Raspored_filmova> rasporedi) {
 		this.rasporedi = rasporedi;
-	}
+	}*/
+	
+	
 
 	public Long getId() {
 		return id;
 	}
+
+
+
+
+
+	public List<Raspored_filmova> getRasporedi() {
+		return rasporedi;
+	}
+
+
+
+
+	public void setRasporedi(List<Raspored_filmova> rasporedi) {
+		this.rasporedi = rasporedi;
+	}
+
+	
+
+
+
+	
+
 
 	public void setId(Long id) {
 		this.id = id;
@@ -93,11 +124,11 @@ public class Bioskop implements Serializable{
 	}
 
 	public String getEMail() {
-		return eMail;
+		return email;
 	}
 
 	public void setEMail(String e_mail) {
-		this.eMail = e_mail;
+		this.email = e_mail;
 	}
 
 	public Menadzer getMenadzer() {
@@ -119,7 +150,7 @@ public class Bioskop implements Serializable{
 	@Override
 	public String toString() {
 		return "Bioskop {id=" + id + ", naziv=" + naziv + ", adresa=" + adresa + ", broj_centrale=" + brojCentrale
-				+ ", e_mail=" + eMail + "}";
+				+ ", e_mail=" + email + "}";
 	}
 	
 }

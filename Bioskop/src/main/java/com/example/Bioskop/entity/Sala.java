@@ -1,7 +1,8 @@
-package com.example.Bioskop.entity;
+ package com.example.Bioskop.entity;
 
 import java.io.Serializable;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -11,9 +12,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -27,15 +25,28 @@ public class Sala implements Serializable {
 	@Column
 	private int kapacitet;
 	@Column
-	private String oznaka_sale;
+	private String oznakaSale;
 	
 	//sala pripada jednom bioskopu
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.PERSIST)
 	private Bioskop bioskop;
 	
+	
+	
+	
 	//sala ima vise terminskih rasporeda,ako obrisem salu,obrisace mi se  teminski raspored koji je u njoj
-	@OneToMany(mappedBy="sala",fetch=FetchType.LAZY,cascade=CascadeType.ALL)
-	private Set<Terminski_raspored> projekcije=new HashSet<>();
+	@OneToMany(mappedBy="sala",cascade=CascadeType.REMOVE)
+	private List<Terminski_raspored> projekcije=new ArrayList<>();
+ 
+	public Sala(){}
+	
+	
+	public Sala(int kapacitet, String oznakaSale, Bioskop bioskop) {
+		super();
+		this.kapacitet = kapacitet;
+		this.oznakaSale = oznakaSale;
+		this.bioskop = bioskop;
+	}
 
 	public Long getId() {
 		return id;
@@ -54,11 +65,11 @@ public class Sala implements Serializable {
 	}
 
 	public String getOznaka_sale() {
-		return oznaka_sale;
+		return oznakaSale;
 	}
 
-	public void setOznaka_sale(String oznaka_sale) {
-		this.oznaka_sale = oznaka_sale;
+	public void setOznaka_sale(String oznakaSale) {
+		this.oznakaSale = oznakaSale;
 	}
 
 	public Bioskop getBioskop() {
@@ -68,18 +79,33 @@ public class Sala implements Serializable {
 	public void setBioskop(Bioskop bioskop) {
 		this.bioskop = bioskop;
 	}
+	
+	
 
-	public Set<Terminski_raspored> getProjekcije() {
+	
+
+
+	public List<Terminski_raspored> getProjekcije() {
+		return projekcije;
+	}
+
+
+	public void setProjekcije(List<Terminski_raspored> projekcije) {
+		this.projekcije = projekcije;
+	}
+
+
+	/*public Set<Terminski_raspored> getProjekcije() {
 		return projekcije;
 	}
 
 	public void setProjekcije(Set<Terminski_raspored> projekcije) {
 		this.projekcije = projekcije;
 	}
-	
+	*/
 	@Override
 	public String toString() {
-		return "Sala {id=" + id + ", kapacitet=" + kapacitet + ", oznaka_sale=" + oznaka_sale + ",bioskop="+bioskop+"}";
+		return "Sala {id=" + id + ", kapacitet=" + kapacitet + ", oznaka_sale=" + oznakaSale + ",bioskop="+bioskop+"}";
 	}
 	
 }

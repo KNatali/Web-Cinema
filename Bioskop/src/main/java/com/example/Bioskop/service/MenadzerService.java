@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.Bioskop.entity.Gledalac;
+
 import com.example.Bioskop.entity.Korisnik;
 import com.example.Bioskop.entity.Menadzer;
 import com.example.Bioskop.repository.MenadzerRepository;
@@ -22,7 +22,8 @@ public class MenadzerService {
 	}
 	
 	public List<Menadzer> findAll(){
-		return this.menadzerRepository.findAll();
+		List<Menadzer> menadzeri=this.menadzerRepository.findAll();
+		return menadzeri;
 	}
 	
 	public Menadzer save(Menadzer m) {
@@ -43,10 +44,10 @@ public class MenadzerService {
 		m.setPrezime(g.getPrezime());
 		m.setKontaktTelefon(g.getKontaktTelefon());
 		m.setDatumRodjenja(g.getDatumRodjenja());
-		m.setEadresa(g.getEadresa());
+		m.setEMail(g.getEMail());
 		//nez jel ovako treba uloga i aktivnost
 		m.setUloga("Menadzer");
-		m.setAktivan(false);
+		m.setAktivan(true);
 		
 		return this.menadzerRepository.save(m);
 		

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>Bioskop-Naslovna-Admin</title>
+	<title>Bioskop-Naslovna-Menadzer</title>
 	<meta charset="utf-8"/>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -26,23 +26,15 @@
 
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<div class="navbar-nav ml" >
-					<a th:href="${'/'}" class="nav-item nav-link active">Početna</a>
-					<div class="nav-item dropdown">
-						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Filmovi</a>
-						<div class="dropdown-menu">
-							<a th:href="${'/filmovi'}" class="dropdown-item">Svi filmovi</a>
-							<a href="#" class="dropdown-item">Raspored</a>
-							<a th:href="${'/pretraga'}" class="dropdown-item">Pretraga</a>
-						</div>
-					</div>
-					<a href="#" class="nav-item nav-link">Bioskop</a>
-					<a href="#" class="nav-item nav-link">O nama</a>
-					<a href="#" class="nav-item nav-link">Kontakt</a>
+					<a href="index.html" class="nav-item nav-link ">Početna</a>
+					<a href="filmovi.html" class="nav-item nav-link ">Filmovi</a>
+					<a href="pretraga.html" class="nav-item nav-link ">Pretraga</a>
+					<a href="bioskopi.html" class="nav-item nav-link">Bioskop</a>
 					
 				</div>
 				<div class="navbar-nav ml-auto">
-					<a  href="#" class="nav-item nav-link">Moj profil</a>
-					<a th:href="${'/'}" class="nav-item nav-link">Log Out</a>
+					<a  href="login.html" class="nav-item nav-link">Login</a>
+					<a href="register.html" class="nav-item nav-link">Register</a>
 				</div>
 				
 			</div>
@@ -56,73 +48,53 @@
 	  <section class="text-center">
 	
 	    <!-- Section heading -->
-	    <h3 class="font-weight-bold ">MOJ PROFIL(ADMINISTRATOR)</h3>
+	    <h3 class="font-weight-bold ">MOJ PROFIL(MENADŽER)</h3>
 		<hr class=" accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 200px;">
 	
 	    <div class="row">
 	      <div class="col-lg-6">
 	
 	        <img src="/images/profil1.png" style="width:50%"/>
-	     <!--  
-			<a href="#" class="btn btn-outline-danger btn-lg btn-block dropdown-toggle" data-toggle="dropdown">Registracija Menadžera</a>
-			<div class="menii dropdown-menu">
-				<a class="dropdown-item btn btn-outline-danger btn-lg btn-block" th:href="${'/add-Menadzer'}">Dodaj novog</a>
-				<a class="dropdown-item btn btn-outline-danger btn-lg btn-block" th:href="${'/register-Menadzer'}" >Aktiviraj neaktivne naloge</a>
-			</div>
-			
-			  <a th:href="${'/register-Menadzer'}" style="text-decoration : none">
-			<button type="button" class="btn btn-outline-danger btn-lg btn-block">Registracija menadžera</button>
-	        </a>-->
-	     	<a th:href="${'/add-Menadzer'}" style="text-decoration : none">
-			<button type="button" class="btn btn-outline-danger btn-lg btn-block">Registracija menadžera</button>
-	        </a>
-	        <a th:href="${'/register-Menadzer'}" style="text-decoration : none">
-			<button type="button" class="btn btn-outline-danger btn-lg btn-block">Aktiviraj menadžera</button>
-	        </a>
-			<button type="button" class="btn btn-outline-danger btn-lg btn-block">Uklanjanje menadžera</button>
-			
-		  <a href="#" class="btn btn-outline-danger btn-lg btn-block dropdown-toggle" data-toggle="dropdown">Bioskopi</a>
-			<div class="menii dropdown-menu">
-				<a class="dropdown-item btn btn-outline-danger btn-lg btn-block" th:href="${'/bioskop-dodaj'}">Dodavanje bioskopa</a>
-				<a class="dropdown-item btn btn-outline-danger btn-lg btn-block" href="#">Uklanjanje bioskopa</a>
-				<a class=" btn btn-outline-danger btn-lg btn-block dropdown-item" href="#">Izmjene bioskopa</a>
-			</div>
-			
+		
+			<button type="button" class="btn btn-outline-danger btn-lg btn-block">Pregled bioskopa</button>
+			<button type="button" class="btn btn-outline-danger btn-lg btn-block">Izmjena-sala</button>
+			<button type="button" class="btn btn-outline-danger btn-lg btn-block">Izmjena-raspored</button>
 	        
-	       
+			
+		  
 	      </div>
 	
 	      <div class="col-lg-5 text-center text-md-left">
 	
-	        <h2 th:text="${admin.ime}" class="h2-responsive text-center text-md-left product-name font-weight-bold dark-grey-text mb-1 ml-xl-5 ml-4"></h2>
+	        <h2 th:text="${menadzer.ime}" class="h2-responsive text-center text-md-left product-name font-weight-bold dark-grey-text mb-1 ml-xl-5 ml-4"></h2>
 	        
 	       
 	        <div class="font-weight-normal">
 	          
 	          
 	          <div class="ml-xl-5 ml-4">
-	            <p><strong>Korisnicko ime: </strong><span th:text="${admin.korisnickoIme}"></span></p>
+	            <p><strong>Korisnicko ime: </strong><span th:text="${menadzer.korisnickoIme}"></span></p>
 	          </div>
 	         <div class="ml-xl-5 ml-4">
-	            <p><strong>Lozinka: </strong><span th:text="${admin.lozinka}"></span></p>
+	            <p><strong>Lozinka: </strong><span th:text="${menadzer.lozinka}"></span></p>
 	          </div>
 	          <div class="ml-xl-5 ml-4">
-	            <p><strong>Ime: </strong><span th:text="${admin.ime}"></span></p>
+	            <p><strong>Ime: </strong><span th:text="${menadzer.ime}"></span></p>
 	          </div>
 	         <div class="ml-xl-5 ml-4">
-	            <p><strong>Prezime: </strong><span th:text="${admin.prezime}"></span></p>
+	            <p><strong>Prezime: </strong><span th:text="${menadzer.prezime}"></span></p>
 	          </div>
 			<div class="ml-xl-5 ml-4">
-	            <p><strong>Kontakt telefon: </strong><span th:text="${admin.kontaktTelefon}"></span></p>
+	            <p><strong>Kontakt telefon: </strong><span th:text="${menadzer.kontaktTelefon}"></span></p>
 	          </div>
 			   <div class="ml-xl-5 ml-4">
-	            <p><strong>E adresa: </strong><span th:text="${admin.Eadresa}"></span></p>
+	            <p><strong>E adresa: </strong><span th:text="${menadzer.Eadresa}"></span></p>
 	          </div>
 			 <div class="ml-xl-5 ml-4">
-	            <p><strong>Datum rođenja: </strong><span th:text="${admin.datumRodjenja}"></span></p>
+	            <p><strong>Datum rođenja: </strong><span th:text="${menadzer.datumRodjenja}"></span></p>
 	          </div>
 			<div class="ml-xl-5 ml-4">
-	            <p><strong>Uloga: </strong><span th:text="${admin.uloga}"></span></p>
+	            <p><strong>Uloga: </strong><span th:text="${menadzer.uloga}"></span></p>
 	          </div>
 	          
 	          

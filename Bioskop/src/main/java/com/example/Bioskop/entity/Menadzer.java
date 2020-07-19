@@ -12,7 +12,19 @@ import javax.persistence.OneToMany;
 public class Menadzer extends Korisnik{
 	
 	//jedan menadzer ima vise bioskopa, i cascadeType je PERSIST jer ne zelim da izbrisem Bioskop ako izbrisem Menadzera
-	@OneToMany(mappedBy="menadzer",fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
+
+	
+	
+	@OneToMany(mappedBy="menadzer",fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	private Set<Bioskop> bioskopi=new HashSet<>();
 
+	public Set<Bioskop> getBioskopi() {
+		return bioskopi;
+	}
+
+	public void setBioskopi(Set<Bioskop> bioskopi) {
+		this.bioskopi = bioskopi;
+	}
+
+	
 }

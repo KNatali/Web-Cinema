@@ -22,7 +22,7 @@ public class Ocjena  implements Serializable{
 	private Film film;
 	
 	@Column
-	private double ocjena;
+	private Double ocjena;
 
 	
 	public Film getFilm() {
@@ -33,7 +33,7 @@ public class Ocjena  implements Serializable{
 		this.film = film;
 	}
 
-	public double getOcjena() {
+	public Double getOcjena() {
 		return ocjena;
 	}
 
